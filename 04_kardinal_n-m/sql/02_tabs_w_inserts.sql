@@ -4,8 +4,8 @@
 DROP DATABASE IF EXISTS mydb;
 CREATE DATABASE IF NOT EXISTS mydb;
 
-/* SERVANTS */
 
+/* SERVANTS */
 
 -- Servants: ohne Fremdschlüssel
 CREATE TABLE IF NOT EXISTS `mydb`.`servants` (
