@@ -49,22 +49,22 @@ SELECT * FROM mydb.products;
 
 -- ServantsProducts (purchases)
 CREATE TABLE IF NOT EXISTS `mydb`.`purchases` (
-  `servants_id` INT NOT NULL,
-  `products_id` INT NOT NULL,
-  PRIMARY KEY (`servants_id`, `products_id`),
-  INDEX `fk_servants_has_products_products1_idx` (`products_id` ASC),
-  INDEX `fk_servants_has_products_servants_idx` (`servants_id` ASC),
-  CONSTRAINT `fk_servants_has_products_servants`
-    FOREIGN KEY (`servants_id`)
+  `servants_id` INT NOT NULL,  										-- Definieren Sie die Spalte `servants_id` vom Datentyp INT, die nicht NULL-Werte akzeptiert.
+  `products_id` INT NOT NULL,  										-- Definieren Sie die Spalte `products_id` vom Datentyp INT, die nicht NULL-Werte akzeptiert.
+  PRIMARY KEY (`servants_id`, `products_id`),  -- Festlegen des Primärschlüssels für die Tabelle "purchases" mit den Spalten `servants_id` und `products_id`.
+  INDEX `fk_servants_has_products_products1_idx` (`products_id` ASC),  -- Erstellen eines Index mit dem Namen `fk_servants_has_products_products1_idx` für die Spalte `products_id`.
+  INDEX `fk_servants_has_products_servants_idx` (`servants_id` ASC),  -- Erstellen eines Index mit dem Namen `fk_servants_has_products_servants_idx` für die Spalte `servants_id`.
+  CONSTRAINT `fk_servants_has_products_servants`  					-- Definieren einer Fremdschlüssel-Einschränkung mit dem Namen `fk_servants_has_products_servants` für die Spalte `servants_id`.
+    FOREIGN KEY (`servants_id`)    									-- Legen Sie fest, dass die Spalte `servants_id` auf die Tabelle `servants` in der Spalte `id` verweist.
     REFERENCES `mydb`.`servants` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_servants_has_products_products1`
-    FOREIGN KEY (`products_id`)
+    ON DELETE NO ACTION    											-- Festlegen der Aktion bei Löschung des referenzierten Datensatzes (NO ACTION bedeutet, dass keine Aktion ausgeführt wird).
+    ON UPDATE NO ACTION,    										-- Festlegen der Aktion bei Aktualisierung des referenzierten Datensatzes (NO ACTION bedeutet, dass keine Aktion ausgeführt wird).
+  CONSTRAINT `fk_servants_has_products_products1`  					-- Definieren einer Fremdschlüssel-Einschränkung mit dem Namen `fk_servants_has_products_products1` für die Spalte `products_id`.
+    FOREIGN KEY (`products_id`)    									-- Legen Sie fest, dass die Spalte `products_id` auf die Tabelle `products` in der Spalte `id` verweist.
     REFERENCES `mydb`.`products` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON DELETE NO ACTION    											-- Festlegen der Aktion bei Löschung des referenzierten Datensatzes (NO ACTION bedeutet, dass keine Aktion ausgeführt wird).
+    ON UPDATE NO ACTION)    										-- Festlegen der Aktion bei Aktualisierung des referenzierten Datensatzes (NO ACTION bedeutet, dass keine Aktion ausgeführt wird).
+ENGINE = InnoDB;													-- Festlegen des Storage-Engines für die Tabelle auf InnoDB.
 
 -- Purchases: Struktur
 DESCRIBE mydb.purchases;
