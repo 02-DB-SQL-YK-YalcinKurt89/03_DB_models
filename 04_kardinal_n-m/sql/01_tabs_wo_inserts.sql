@@ -9,11 +9,11 @@ ENGINE = InnoDB;
 
 -- Products: ohne Fremdschlüssel
 CREATE TABLE IF NOT EXISTS `mydb`.`products` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `product_name` VARCHAR(45) NOT NULL,
-  `product_price` DECIMAL(4,2) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+  `id` INT NOT NULL AUTO_INCREMENT,  -- Definieren Sie die Spalte `id` vom Datentyp INT, die nicht NULL-Werte akzeptiert.
+  `product_name` VARCHAR(45) NOT NULL,  -- Definieren Sie die Spalte `product_name` vom Datentyp VARCHAR mit einer maximalen Länge von 45 Zeichen, die nicht NULL-Werte akzeptiert.
+  `product_price` DECIMAL(4,2) NOT NULL,  -- Definieren Sie die Spalte `product_price` vom Datentyp DECIMAL(4,2), die nicht NULL-Werte akzeptiert.
+  PRIMARY KEY (`id`))  -- Festlegen des Primärschlüssels für die Tabelle "products" mit der Spalte `id`.
+ENGINE = InnoDB;-- Festlegen des Storage-Engines für die Tabelle auf InnoDB.
 
 -- ServantsProducts (purchases)
 CREATE TABLE IF NOT EXISTS `mydb`.`purchases` (
