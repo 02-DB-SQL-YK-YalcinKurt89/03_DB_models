@@ -1,6 +1,6 @@
 -- Tabellen, verbunden
-DROP TABLE IF EXISTS mydb.servants;
-DROP TABLE IF EXISTS mydb.cats;
+DROP DATABASE IF EXISTS mydb;
+CREATE DATABASE IF NOT EXISTS mydb;
 
 -- Mastertabelle (MT)
 CREATE TABLE IF NOT EXISTS `mydb`.`cats` (
