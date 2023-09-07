@@ -1,8 +1,8 @@
 -- 02. Tabellen verbunden + INSERTS
 
--- Vorbereitungen
-DROP TABLE IF EXISTS mydb.kittens;
-DROP TABLE IF EXISTS mydb.cats;
+-- Vorbereitung
+DROP DATABASE IF EXISTS mydb;
+CREATE DATABASE IF NOT EXISTS mydb;
 
 -- MT: cats
 CREATE TABLE IF NOT EXISTS `mydb`.`cats` (
